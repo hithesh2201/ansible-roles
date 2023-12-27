@@ -1,4 +1,5 @@
 - name : {{component}}
   hosts: {{component}}
+  become: yes
   roles:
     -{{component}}
