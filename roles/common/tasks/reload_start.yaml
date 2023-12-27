@@ -1,0 +1,9 @@
+- name: Reload systemd
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+
+- name: Enable and start Catalogue service
+  service:
+    name: "{{ component }}"
+    enabled: yes
+    state: started

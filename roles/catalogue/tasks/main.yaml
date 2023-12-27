@@ -8,8 +8,12 @@
   import_role:
     name: common
     tasks_from: download_install
-    
+
 - name: configure service file
   import_role:
     name: catalogue
     tasks_from: catalogue_service
+- name:  reload and start
+  import_role:
+    name: common
+    tasks_from: reload_start
