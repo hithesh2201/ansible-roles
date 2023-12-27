@@ -1,0 +1,5 @@
+---
+- name: install nodejs 18
+  import_role:
+    name: catalogue
+    tasks_from: nodejs

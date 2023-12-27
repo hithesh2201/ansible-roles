@@ -1,0 +1,22 @@
+---
+- name: Disable Node module
+  command: dnf module disable nodejs -y
+
+- name: Enable Node.js 18 module
+  command: dnf module enable nodejs:18 -y
+
+- name: Install Node.js
+  dnf:
+    name: nodejs
+    state: present
+
+- name: Add application user roboshop
+  user:
+    name: roboshop
+    system: yes
+    shell: /sbin/nologin
+
+- name: Create app directory
+  file:
+    path: /app
+    state: directory
