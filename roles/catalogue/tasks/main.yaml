@@ -8,10 +8,6 @@
   import_role:
     name: common
     tasks_from: download_install
-- name: install mongod
-  dnf:
-    name: mongodb-org
-    state: present
 
 - name: configure service file
   import_role:
