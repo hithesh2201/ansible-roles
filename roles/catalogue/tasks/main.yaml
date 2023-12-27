@@ -13,7 +13,7 @@
   import_role:
     name: catalogue
     tasks_from: catalogue_service
-- name: daemon-reload
+- name: reload catalogue.service
   import_role:
     name: common
     tasks_from: daemon-reload
