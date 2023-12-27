@@ -1,4 +1,5 @@
 - name: Setup  Catalogue Service
-  src: catalogue.service
-  dest: /etc/systemd/system/catalogue.service
-  remote_src: yes
+  file:
+    src: catalogue.service
+    dest: /etc/systemd/system/catalogue.service
+    remote_src: yes
