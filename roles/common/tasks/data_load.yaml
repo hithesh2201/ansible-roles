@@ -14,4 +14,4 @@
     state: present
 
 - name: Load Schema
-  shell: mongo --host mongod.hiteshshop.online </app/schema/\"{{ component }}\".js
+  shell: mongo --host mongod.hiteshshop.online </app/schema/{{ component }}.js
