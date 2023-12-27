@@ -1,0 +1,17 @@
+- name: Configure MongoDB repository
+  copy:
+    content: |
+      [mongodb-org-4.2]
+      name=MongoDB Repository
+      baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+      gpgcheck=0
+      enabled=1
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: Install MongoDB client
+  dnf:
+    name: mongodb-org-shell
+    state: present
+
+- name: Load Schema
+  # shell: "mongo --host mongodb.hiteshshop.online </app/schema/{{ catalogue }}.js"
