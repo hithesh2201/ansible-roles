@@ -1,6 +1,6 @@
 
 
-- name: "Enable and start {{ component}} service"
+- name: Enable and start "{{ component }}" service
   service:
     name: "{{ component }}"
     enabled: yes
