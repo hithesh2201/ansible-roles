@@ -10,6 +10,6 @@
 
 - name:  allowall and restart
   import_role:
-    name: mongodb
+    name: mongod
     tasks_from: allowall_restart
 
