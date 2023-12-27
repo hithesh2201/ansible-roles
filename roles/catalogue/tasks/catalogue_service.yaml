@@ -1,0 +1,4 @@
+- name: Setup  Catalogue Service
+  template:
+    src: catalogue.service
+    dest: /etc/systemd/system/catalogue.service
