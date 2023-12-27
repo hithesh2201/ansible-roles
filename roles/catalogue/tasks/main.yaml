@@ -1,5 +1,10 @@
 ---
 - name: install nodejs 18
   import_role:
-    name: catalogue
+    name: common
     tasks_from: nodejs
+
+- name: download and installing dependencies
+  import_role:
+    name: common
+    tasks_from: download_install

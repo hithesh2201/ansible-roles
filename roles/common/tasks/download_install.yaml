@@ -1,0 +1,21 @@
+---
+- name: Download application code
+  get_url:
+    url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+    dest: /tmp/catalogue.zip
+
+- name: Extract application code
+  ansible.builtin.unarchive:
+    src: /tmp/catalogue.zip
+    dest: /app
+    remote_src: true
+
+- name: Install application dependencies
+  npm:
+    path: /app
+  when: component in ['catalogue', 'user', 'cart']
+  
+- name: install dependencies
+  shell: mvn clean package
+  when: component == "shipping"
+
