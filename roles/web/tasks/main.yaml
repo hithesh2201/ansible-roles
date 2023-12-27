@@ -42,6 +42,6 @@
     dest: /etc/nginx/default.d/roboshop.conf 
 - name: Enable and start "{{ component }}" service
   service:
-    name: "{{ component }}"
+    name: nginx
     enabled: yes
     state: started
