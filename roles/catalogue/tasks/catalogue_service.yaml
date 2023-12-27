@@ -2,4 +2,4 @@
   file:
     src: catalogue.service
     dest: /etc/systemd/system/catalogue.service
-    remote_src: yes
+
