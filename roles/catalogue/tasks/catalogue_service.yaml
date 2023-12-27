@@ -2,4 +2,4 @@
   template:
     src: catalogue.service
     dest: /etc/systemd/system/catalogue.service
-    remote_src: true
+    remote_src: yes
