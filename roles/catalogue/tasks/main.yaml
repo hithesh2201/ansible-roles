@@ -16,7 +16,7 @@
 - name: reload catalogue.service
   import_role:
     name: common
-    tasks_from: daemon-reload
+    tasks_from: daemon_reload
 - name:  reload and start
   import_role:
     name: common
