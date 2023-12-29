@@ -1,0 +1,10 @@
+- name : install maven
+  shell: dnf install maven -y
+- name: Add application user roboshop
+  user:
+    name: roboshop
+
+- name: Create app directory
+  file:
+    path: /app
+    state: directory
