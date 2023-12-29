@@ -15,3 +15,8 @@
 
 - name: Load Schema
   shell: mongo --host {{MONGODB_HOST}} </app/schema/{{ component }}.js
+
+- name: restart {{component}}
+  service:
+    name: "{{ component }}"
+    state: restarted
