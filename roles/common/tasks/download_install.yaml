@@ -10,14 +10,20 @@
     dest: /app
     remote_src: true
 
-- name: Install application dependencies
+- name: Install '{{ component }}' dependencies
   npm:
     path: /app
   when: component in ['catalogue', 'user', 'cart']
   
-- name: install dependencies
+- name: install '{{ component }}' dependencies
   shell: mvn clean package
   args:
     chdir: /app
   when: component == "shipping"
+
+- name: install '{{ component }}' dependencies
+  shell : pip3.6 install -r requirements.txt
+  args:
+    chdir: /app
+  when: component == "payment"  
 

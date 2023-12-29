@@ -2,4 +2,6 @@ MONGODB_HOST: mongod.hiteshshop.online
 REDIS_HOST: redis.hiteshshop.online
 CATALOGUE_HOST: catalogue.hiteshshop.online
 CART_HOST: cart.hiteshshop.online
-MYSQL_HOST: mysql.hiteshshop.online 
+MYSQL_HOST: mysql.hiteshshop.online
+RABBITMQ_HOST: rabbitmq.hiteshshop.online
+USER_HOST: user.hiteshshop.online

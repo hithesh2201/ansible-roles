@@ -1,0 +1,21 @@
+- name: install python
+  import_role:
+    name: common
+    tasks_from: python_install
+- name: download and installing dependencies
+  import_role:
+    name: common
+    tasks_from: download_install
+
+- name: configure '{{ component }}' file
+  import_role:
+    name: payment
+    tasks_from: payment_service
+- name: reload payment.service
+  import_role:
+    name: common
+    tasks_from: daemon_reload
+- name:  reload and start
+  import_role:
+    name: common
+    tasks_from: reload_start

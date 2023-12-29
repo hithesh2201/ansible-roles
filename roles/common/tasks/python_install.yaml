@@ -1,0 +1,15 @@
+- name: install some softwares related to python
+  dnf:
+    name: '{{item}}'
+    state: present
+  loop:
+    - python36  #rpm -q python36 , to check all installed packages rpm -qa (RPM-RedHat package manager)
+    - gcc
+    - python3-devel
+- name: add user
+  user:
+    name: roboshop
+- name: create directory
+  file:
+    path : /app
+    state: directory
