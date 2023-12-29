@@ -1,6 +1,6 @@
 - name: configuring user service file
-  copy:
-    src: user.service
+  template:
+    src: user.service.j2
     dest: /etc/systemd/system/user.service
     
   
