@@ -1,27 +1,23 @@
-- name: MYSQL
-  hosts: mysql
-  become: yes
-  tasks:
-    - name: disable mysql current version
-      shell: dnf module disable mysql -y
-    - name: change mysql version
-      copy:
-        content: |
-                [mysql]
-                name=MySQL 5.7 Community Server
-                baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
-                enabled=1
-                gpgcheck=0
-        dest: /etc/yum.repos.d/mysql.repo
-    - name: intall MYSQL
-      dnf:
-        name: mysql-community-server
-        state: present
-    - name: enable and start mysql
-      service:
-        state: started
-        enabled: yes
-        name: mysqld
-    - name: set password
-      shell: mysql_secure_installation --set-root-pass RoboShop@1
-    
+
+- name: disable mysql current version
+  shell: dnf module disable mysql -y
+- name: change mysql version
+  copy:
+    content: |
+            [mysql]
+            name=MySQL 5.7 Community Server
+            baseurl=http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
+            enabled=1
+            gpgcheck=0
+    dest: /etc/yum.repos.d/mysql.repo
+- name: intall MYSQL
+  dnf:
+    name: mysql-community-server
+    state: present
+- name: enable and start mysql
+  service:
+    state: started
+    enabled: yes
+    name: mysqld
+- name: set password
+  shell: mysql_secure_installation --set-root-pass RoboShop@1
