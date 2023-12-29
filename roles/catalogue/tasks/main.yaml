@@ -24,4 +24,4 @@
 - name:  reload and start
   import_role:
     name: common
-    tasks_from: data_load
+    tasks_from: mongod_data_load
