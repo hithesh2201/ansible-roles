@@ -1,0 +1,23 @@
+- name: Get required version of redis
+  command: dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+- name: Enable 6.2 redis
+  command: dnf module enable redis:remi-6.2 -y
+- name: Install redis
+  dnf:
+    name: redis
+    state: present
+- name: listen to all from internet
+  replace:
+    path: /etc/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+- name: listen to all from internet
+  replace:
+    path:  /etc/redis/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+- name: enable and start
+  service:
+    enabled: yes
+    state: restarted
+    name: redis
