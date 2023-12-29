@@ -1,0 +1,36 @@
+- name: install golang
+  dnf:
+    name: golang
+    state: present
+- name: add user
+  user:
+    name: roboshop
+- name:
+  file:
+    path: /app
+    state: directory
+- name: downnload content through url
+  get_url:
+    url: https://roboshop-builds.s3.amazonaws.com/dispatch.zip
+    dest: /tmp/dispatch.zip
+- name: unarchive
+  unarchive:
+    src: /tmp/dispatch.zip
+    dest: /app
+    remote_src: yes
+- name: install dependencies
+  shell : go mod init dispatch ;go get ; go build
+  args:
+    chdir: /app
+- name: configure dispatch service
+  copy:
+    src: dispatch.service
+    dest: /etc/systemd/system/dispatch.service
+- name : daemon_reload
+  systemd:
+    daemon_reload: yes
+- name : enable and start
+  service:
+    name: dispatch
+    enabled: yes
+    state: started
