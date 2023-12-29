@@ -5,3 +5,4 @@ CART_HOST: cart.hiteshshop.online
 MYSQL_HOST: mysql.hiteshshop.online
 RABBITMQ_HOST: rabbitmq.hiteshshop.online
 USER_HOST: user.hiteshshop.online
+component: mongod
