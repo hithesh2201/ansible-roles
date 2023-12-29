@@ -1,0 +1,1 @@
+command to run: ansible-playbook  -e component=web main.yaml
