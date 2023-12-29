@@ -2,7 +2,7 @@
 - name: Download application code
   get_url:
     url: https://roboshop-builds.s3.amazonaws.com/{{ component }}}.zip
-    dest: /tmp/catalogue.zip
+    dest: /tmp/{{component}}.zip
 
 - name: Extract application code
   ansible.builtin.unarchive:
