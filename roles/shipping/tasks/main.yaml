@@ -1,0 +1,33 @@
+- name: installing maven
+  import_role:
+    name: common
+    tasks_from: maven_install
+- name: installing maven
+  import_role:
+    name: common
+    tasks_from: download_install
+- name: rename maven
+  import_role:
+    name: shipping
+    tasks_from: rename_shipping
+- name: configure shipping maven
+  import_role:
+    name: shipping
+    tasks_from: shipping_service
+- name: configure shipping maven
+  import_role:
+    name: common
+    tasks_from: daemon_reload
+- name: configure shipping maven
+  import_role:
+    name: common
+    tasks_from: daemon_reload
+- name: configure shipping maven
+  import_role:
+    name: common
+    tasks_from: reload_start
+
+- name: configure shipping maven
+  import_role:
+    name: common
+    tasks_from: mysql_data_load
