@@ -17,5 +17,7 @@
   
 - name: install dependencies
   shell: mvn clean package
+  chdir:
+    path: /app
   when: component == "shipping"
 
