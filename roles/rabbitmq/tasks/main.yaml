@@ -1,0 +1,24 @@
+
+- name: yum repo
+  shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+- name: yum repo configure
+  shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+- name: install rabbitmq
+  dnf:
+    name: rabbitmq-server
+    state: present
+- name: enable start rabbitmq
+  service:
+    name: rabbitmq-server
+    state: started
+    enabled: yes
+- name: |-
+      Add user to server and assign full access control on / vhost.
+      The user might have permission rules for other vhost but you don't care.
+  community.rabbitmq.rabbitmq_user:
+    user: roboshop
+    password: roboshop123
+    # state: present
+- name: set permissions
+  shell: rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+#tail -f /var/log/rabbitmq/rabbit@your_hostname.log
