@@ -1,1 +1,3 @@
 MONGODB_HOST: mongod.hiteshshop.online
+REDIS_HOST: redis.hiteshshop.online
+CATALOGUE_HOST: catalogue.hiteshshop.online
